@@ -49,7 +49,7 @@ class MainController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:100',
             'lastname' => 'required|max:100',
-            'phone' => 'required|array'
+            'phone' => 'nullable|numeric'
         ]);
 
         $contact = new Contact([
@@ -109,7 +109,7 @@ class MainController extends Controller
         $validatedData = $request->validate([
             'name' => 'max:100',
             'lastname' => 'max:100',
-            'phone' => 'numeric',
+            'phone' => 'nullable|numeric',
         ]);
 
         $input = Contact::find($id);

@@ -20,9 +20,13 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Telephone(s)</label>
-                            @foreach($contact_edit->phones as $k => $tel)
-                                <input type="text" class="form-control" id="exampleFormControlInput1" name="phone{{$k}}" value="{{ $tel->phone }}">
-                            @endforeach
+                           @if(count($contact_edit->phones) > 0)
+                                @foreach($contact_edit->phones as $k => $tel)
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="phone{{$k}}" value="{{ $tel->phone }}">
+                                @endforeach
+                           @else
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="phone" value="">
+                           @endif
                         </div>
                         <div class="form-group">
                             <input type="submit" id="submit" class="btn btn-primary" value="Save changes">
